@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Bella Vita</title>
+    <style>
+    body {
+        font-family: 'Courier New', Courier, monospace;
+        background: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
+        color: #333;
+    }
+    .header {
+        font-family: 'Brush Script MT', cursive;
+        font-size: 48px;
+        text-align: center;
+        margin: 20px;
+        color: #6D214F;
+    }
+    .menu {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        padding: 20px;
+    }
+    .menu-item {
+        background: linear-gradient(to bottom, #fad0c4 0%, #ffd1ff 100%);
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .menu-item h2 {
+        font-family: 'Lucida Calligraphy', cursive;
+        color: #4a4e69;
+    }
+</style>
+</head>
+<body>
+    <header>
+        <div class="header" role="banner"><h1>La Bella Vita</h1></div>
+    </header>
+    <div class="header">La Bella Vita</div>
+<div class="menu-item">
+    <h2>Ravioli</h2>
+    <p>Stuffed with cheese and spinach, served in a butter sage sauce.</p>
+    <p><strong>Price:</strong> $18</p>
+    <button onclick="addToCart('Pizza Margherita', 18)">Add to Cart</button>
+</div>
+</div>
+<div class="menu-item">
+    <h2>Fettuccine Alfredo</h2>
+    <p>Classic fettuccine in a creamy parmesan sauce.</p>
+    <p><strong>Price:</strong> $15</p>
+    <button onclick="addToCart('Pizza Margherita', 18)">Add to Cart</button>
+</div>
+</div>
+<div class="menu-item">
+    <h2>Caprese Salad</h2>
+    <p>Fresh mozzarella, tomatoes, basil, and balsamic glaze.</p>
+    <p><strong>Price:</strong> $12</p>
+    <button onclick="addToCart('Pizza Margherita', 18)">Add to Cart</button>
+</div>
+</div>
+<div class="menu-item">
+    <h2>Tiramisu</h2>
+    <p>Layered espresso-soaked ladyfingers with mascarpone cream.</p>
+    <p><strong>Price:</strong> $10</p>
+    <button onclick="addToCart('Pizza Margherita', 18)">Add to Cart</button>
+</div>
+</div>
+<div class="menu-item">
+    <h2>Gelato</h2>
+    <p>Italian ice cream, ask for available flavors.</p>
+    <p><strong>Price:</strong> $8</p>
+    <button onclick="addToCart('Pizza Margherita', 18)">Add to Cart</button>
+</div>
+</div>
+<div class="menu-item">
+    <h2>Bruschetta</h2>
+    <p>Grilled bread with tomato, garlic, basil, and olive oil.</p>
+    <p><strong>Price:</strong> $9</p>
+    <button onclick="addToCart('Pizza Margherita', 18)">Add to Cart</button>
+</div>
+</div>
+<div class="menu-item">
+    <h2>Carbonara</h2>
+    <p>Spaghetti with pancetta, egg, parmesan, and black pepper.</p>
+    <p><strong>Price:</strong> $17</p>
+    <button onclick="addToCart('Pizza Margherita', 18)">Add to Cart</button>
+</div>
+</div>
+<div class="menu-item">
+    <h2>Pollo Piccata</h2>
+    <p>Chicken breast in a lemon caper sauce, served with pasta.</p>
+    <p><strong>Price:</strong> $20</p>
+    <button onclick="addToCart('Pizza Margherita', 18)">Add to Cart</button>
+</div>
+</div>
+
+        <section aria-labelledby="cartHeading">
+           <h2>Your Cart</h2>
+    <ul id="cartItems"></ul>
+    <p><strong>Total:</strong> $<span id="totalPrice">0</span></p>
+    <button onclick="checkout()">Checkout</button>
+        </section>
+    </main>
+    <footer role="contentinfo">
+        <!-- Footer Content Here -->
+    </footer>
+   <script>
+    let cart = [];
+
+    function addToCart(itemName, price) {
+        cart.push({ itemName, price });
+        renderCart();
+    }
+
+    function renderCart() {
+        const cartItemsEl = document.getElementById('cartItems');
+        const totalPriceEl = document.getElementById('totalPrice');
+        cartItemsEl.innerHTML = ''; // Clear existing cart items
+        let total = 0;
+        cart.forEach(item => {
+            const itemEl = document.createElement('li');
+            itemEl.textContent = `${item.itemName} - $${item.price}`;
+            cartItemsEl.appendChild(itemEl);
+            total += item.price;
+        });
+        totalPriceEl.textContent = total.toFixed(2); // Update total price
+    }
+
+    function checkout() {
+        alert('Checkout functionality not implemented.');
+        // Here, you would likely clear the cart and potentially send the order to a server
+        cart = [];
+        renderCart();
+    }
+</script>
+
+
+</body>
+</html>
